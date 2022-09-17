@@ -26,4 +26,10 @@ function Cubo() {
 }
 
 export default Cubo;
+
+
 ```
+
+Transform gltfjsx to components
+
+# https://github.com/pmndrs/gltfjsx
