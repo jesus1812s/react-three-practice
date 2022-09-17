@@ -7,6 +7,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.App {
+  text-align: center;
+  color: red;
+  background-color: #1a1a1a;
+  height: 100vh;
+}
+
+.lienzo {
+  background-color: red;
+  height: 200px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
