@@ -8,18 +8,34 @@ import { useGLTF } from '@react-three/drei';
 
 function Figure(props) {
   const ref = useRef();
+  const refLeft = useRef();
+  const refRight = useRef();
   const { nodes, materials } = useGLTF('/figure.glb');
   useFrame(() => (ref.current.rotation.y += 0.01));
+  useFrame(() => (refRight.current.rotation.y += -0.01));
+  useFrame(() => (refLeft.current.rotation.y += 0.01));
   return (
     <group ref={ref} {...props} dispose={null}>
-      <mesh geometry={nodes.Cube.geometry} material={materials.Material} />
       <mesh
-        geometry={nodes.Sphere.geometry}
-        material={nodes.Sphere.material}
-        position={[0.08, 1.36, 0.04]}
+        ref={refRight}
+        geometry={nodes.Cube.geometry}
+        material={materials.Material}
+        position={[7, 7, 7]}
         rotation={[-3.02, -1.17, 0.04]}
         scale={[0.3, 0.3, 0.38]}
-      />
+      >
+        <meshPhongMaterial color="blue" specular={'yellow'} />
+      </mesh>
+      <mesh
+        ref={refLeft}
+        geometry={nodes.Sphere.geometry}
+        material={nodes.Sphere.material}
+        position={[5, 5, 5]}
+        rotation={[-3.02, -1.17, 0.04]}
+        scale={[0.3, 0.3, 0.38]}
+      >
+        <meshPhongMaterial color="brown" specular={'yellow'} />
+      </mesh>
     </group>
   );
 }
